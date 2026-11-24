@@ -1197,13 +1197,14 @@ html { scroll-padding-top: 64px; }
 .etapa.atual .etapa-faixa { color: var(--lima); }
 .etapa-faixa .equalizador { height: 12px; }
 .etapa-faixa .equalizador i { width: 3px; background: linear-gradient(var(--lima), var(--ciano)); }
-.etapa h3 { color: var(--tinta); font: 700 17px/1.25 var(--ui); }
+.etapa h3 { color: var(--tinta); font: 700 17px/1.25 var(--ui); overflow-wrap: break-word; hyphens: auto; } /* palavra longa em coluna estreita: hifeniza em vez de vazar */
 .etapa-local { margin: 3px 0 8px; color: #9ca8ff; font-size: 14px; font-weight: 700; }
 .etapa-texto { color: #c4cbe0; font-size: 14px; line-height: 1.5; }
 
 /* ---------- PC: horizontal ---------- */
 @media (min-width: 961px) {
-  .linha-tempo { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  /* uma coluna por item (4 estudos, 5 cursos...): a linha do tempo nunca quebra em duas fileiras */
+  .linha-tempo { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 18px; }
   /* a linha passa na altura das bolinhas (ano 29px + metade da bolinha) */
   .linha-tempo::before {
     content: ""; position: absolute; left: 20px; right: 20px; top: 67px; height: 2px;

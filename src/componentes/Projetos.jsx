@@ -97,7 +97,7 @@ export default function Projetos({ destaque }) {
                     <span className="projeto-selo">{p.categoria}</span>
                     <h3>{p.nome}</h3>
                     <p className="projeto-resumo">{p.resumo}</p>
-                    <p className="projeto-papel">{p.papel}</p>
+                    {p.papel && <p className="projeto-papel">{p.papel}</p>}
                     {p.tecnologias.length > 0 && (
                       <ul className="chips" aria-label="Tecnologias">
                         {p.tecnologias.map(t => <li key={t} className="chip">{POR_NOME[t]?.icone && <IconeTec nome={t} />}{t}</li>)}
@@ -154,7 +154,7 @@ function ProjetoAberto({ id }) {
           <span className="categoria">{p.categoria}</span>
           <h3>{p.nome}</h3>
           <p className="resumo">{p.resumo}</p>
-          <p className="papel"><b>Meu papel:</b> {p.papel}</p>
+          {p.papel && <p className="papel"><b>Meu papel:</b> {p.papel}</p>}
           {p.tecnologias.length > 0 && (
             <ul className="chips" aria-label="Tecnologias">
               {p.tecnologias.map(t => <li key={t} className="chip">{POR_NOME[t]?.icone && <IconeTec nome={t} />}{t}</li>)}

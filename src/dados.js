@@ -16,7 +16,7 @@ export const CURRICULO = "/minhas-imagens/curriculo.pdf";
 // Pense em alguém que nunca viu um portfólio: ela entende só lendo esta frase?
 export const SECOES = {
   sobre: "Quem eu sou, o que estudo e do que gosto.",
-  projetos: "Trabalhos que fiz na faculdade, em cursos e por conta própria.",
+  projetos: "Trabalhos que fiz na faculdade, no Instituto PROA e em hackathon.",
   trajetoria: "O caminho que fiz nos estudos até chegar aqui, do mais antigo ao mais recente.",
   competencias: "As linguagens e ferramentas que sei usar. Escolha uma para ver onde aprendi.",
   contato: "Quer conversar? Mande uma mensagem ou use um dos botões.",
@@ -53,21 +53,29 @@ export const FALAS_ZEZINHO = {
 // "papel" é um selo curto (equipe/individual + destaque). Botões só aparecem se houver "repositorio" ou "demo".
 export const PROJETOS = [
   { id: "memoria-viva", nome: "Memória Viva", categoria: "Instituto PROA", imagem: "/minhas-imagens/projeto-memoria-viva.jpg",
-    resumo: "Plataforma web para guardar memórias e histórias de pessoas idosas e compartilhar com a família.",
+    resumo: "Ajuda a pessoa a registrar a própria história a partir de fotografias, falando ou escrevendo, do seu jeito. A família participa enviando fotos e relatos, mas quem conta, decide e confirma o que é verdade é sempre a dona da conta.",
     papel: "Em equipe · Demo Day 2026",
-    tecnologias: [], repositorio: "", demo: "" },
+    tecnologias: ["React"], repositorio: "", demo: "https://memoria-viva-react.vercel.app/" },
+  { id: "quintal", nome: "Quintal", categoria: "Instituto PROA", imagem: "/minhas-imagens/projeto-quintal.jpg",
+    resumo: "Rede social para animais, inspirada na estrutura e nas funcionalidades de redes como o Instagram.",
+    papel: "Individual",
+    tecnologias: ["React"], repositorio: "", demo: "https://viniciusaraujo-coder.github.io/quintal-clone-instagram/" },
+  { id: "loja-impossivel", nome: "Loja Impossível", categoria: "Instituto PROA", imagem: "/minhas-imagens/projeto-loja-impossivel.jpg",
+    resumo: "Loja online de produtos que não existem, feita do zero para estudar a base da web.",
+    papel: "Individual",
+    tecnologias: ["HTML", "CSS", "JavaScript"], repositorio: "", demo: "https://viniciusaraujo-coder.github.io/Loja_Escola/" },
+  { id: "multiverso-news", nome: "Multiverso News", categoria: "Instituto PROA", imagem: "/minhas-imagens/projeto-multiverso-news.jpg",
+    resumo: "Site de notícias geek que simula um portal jornalístico, com matérias fictícias inspiradas em universos da cultura pop.",
+    papel: "Individual",
+    tecnologias: ["HTML", "CSS"], repositorio: "https://github.com/ViniciusAraujo-Coder/Multiverso_News", demo: "" },
+  { id: "mini-rpg", nome: "Mini RPG em Python", categoria: "Faculdade", imagem: "/minhas-imagens/projeto-mini-rpg.jpg",
+    resumo: "Jogo no terminal inspirado em Undertale, feito para a disciplina de Inteligência Artificial, explorando mecânicas narrativas e interação inteligente com o jogador.",
+    papel: "Individual",
+    tecnologias: ["Python"], repositorio: "https://github.com/ViniciusAraujo-Coder/Jogo-Undertale", demo: "" },
   { id: "hackathon-atria", nome: "Hackathon Atria — 2º lugar", categoria: "Hackathon", imagem: "/minhas-imagens/projeto-hackathon-atria.jpg",
     resumo: "Dashboard com automação para controlar o estoque e a validade dos produtos de uma empresa do agronegócio.",
     papel: "Em equipe · 2º lugar",
     tecnologias: ["n8n"], repositorio: "", demo: "" },
-  { id: "mini-rpg", nome: "Mini RPG em Python", categoria: "Projeto pessoal", imagem: "/minhas-imagens/projeto-mini-rpg.jpg",
-    resumo: "RPG no terminal inspirado em Undertale, com combate por turnos.",
-    papel: "Individual",
-    tecnologias: ["Python"], repositorio: "", demo: "" },
-  { id: "loja-impossivel", nome: "Loja Impossível", categoria: "Estudo", imagem: "/minhas-imagens/projeto-loja-impossivel.jpg",
-    resumo: "Loja fictícia de “produtos que não existem”, feita do zero para estudar a base da web.",
-    papel: "Individual · em andamento",
-    tecnologias: ["HTML", "CSS", "JavaScript"], repositorio: "", demo: "" },
 ];
 
 // Competências, agrupadas como no currículo. "icone" = arquivo em public/assets/tech/ (vazio = aparece o nome).
@@ -106,6 +114,7 @@ export const TRAJETORIA = [
 export const CURSOS = [
   { quando: "120h", titulo: "HTML5 e CSS3", local: "Curso em Vídeo", texto: "A base para montar e dar estilo às páginas da internet." },
   { quando: "80h", titulo: "Python 3", local: "Curso em Vídeo", texto: "Linguagem de programação usada em automações, dados e jogos." },
-  { quando: "51h", titulo: "IA Generativa e Copilot", local: "USJT", texto: "Como usar inteligência artificial para ajudar no trabalho." },
+  { quando: "51h", titulo: "Algoritmos, Lógica e Programação Orientada a Objetos", local: "USJT", texto: "A base da programação: pensar a solução passo a passo e organizar o código em partes reaproveitáveis." },
+  { quando: "51h", titulo: "IA Generativa e Copilot para Desenvolvimento de Software", local: "USJT", texto: "Como usar inteligência artificial para ajudar no trabalho." },
   { quando: "38h", titulo: "Praticando C#", local: "Alura", texto: "Linguagem de programação muito usada em sistemas e jogos." },
 ];

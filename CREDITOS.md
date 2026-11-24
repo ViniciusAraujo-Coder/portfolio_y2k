@@ -40,3 +40,4 @@ Arquivo original em `fontes/Y2K-Elements-Digital-Sticker-Pack-130873181.zip` (fo
 | `assets/tech/whatsapp.svg` | [Simple Icons v13.21.0](https://simpleicons.org) | CC0 (cor verde da marca aplicada; a marca pertence ao dono) |
 | `assets/zezinho.gif` | cópia de `REFERENCIAS/giphy.gif`, a calopsita do autor | **Confirmar a origem/licença do GIF antes de publicar** |
 | `minhas-imagens/eu.jpg` | foto do autor | do autor |
+| `minhas-imagens/projeto-*.jpg` | prints de tela dos projetos do autor (reduzidos para 1600px) | do autor; fotos que aparecem dentro dos prints pertencem a quem os projetos as atribuem |
