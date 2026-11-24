@@ -1,0 +1,9 @@
+node_modules
+dist
+
+# Arquivos locais que NÃO podem ir para um repositório público:
+# - REFERENCIAS/: imagens do Pinterest (direitos de terceiros), só inspiração
+# - *.zip em fontes/: sticker pack comprado (a licença não permite redistribuir o original)
+REFERENCIAS/*
+!REFERENCIAS/README.md
+fontes/*.zip
