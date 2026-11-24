@@ -18,7 +18,7 @@ export const SECOES = {
   sobre: "Quem eu sou, o que estudo e do que gosto.",
   projetos: "Trabalhos que fiz na faculdade, no Instituto PROA e em hackathon.",
   trajetoria: "O caminho que fiz nos estudos até chegar aqui, do mais antigo ao mais recente.",
-  competencias: "As linguagens e ferramentas que sei usar. Escolha uma para ver onde aprendi.",
+  competencias: "As linguagens e ferramentas que sei usar.",
   contato: "Quer conversar? Mande uma mensagem ou use um dos botões.",
 };
 
@@ -37,64 +37,47 @@ export const SOBRE = {
 // Mais de um cargo? Eles se revezam sendo "digitados" na abertura.
 export const CARGOS = ["Estudante de Engenharia de Software", "Desenvolvedor Web Java em formação", "Front-end e Back-end"];
 
-// Falas do Zezinho: uma dica curta na primeira visita a cada seção.
-// "projeto" pode apontar para um id de PROJETOS para abrir direto aquele projeto.
-export const FALAS_ZEZINHO = {
-  inicio: { texto: "Oi! Quer conhecer os projetos do Vinicius?", acao: "Ver projetos", href: "#projetos", pose: "aceno" },
-  sobre: { texto: "Curiosidade é um ótimo ponto de partida. Quer ver o caminho até aqui?", acao: "Ver trajetória", href: "#trajetoria" },
-  projetos: { texto: "O Hackathon Atria ficou em 2º lugar. Quer conhecer o projeto?", acao: "Ver Hackathon Atria", href: "#projetos", projeto: "hackathon-atria", pose: "aceno" },
-  trajetoria: { texto: "Cada parada ensina algo. Quer espiar as ferramentas usadas?", acao: "Ver competências", href: "#competencias" },
-  competencias: { texto: "Escolha uma tecnologia para ver onde ela aparece nos projetos.", acao: "Ir ao contato", href: "#contato" },
-  contato: { texto: "Chegamos ao fim do passeio. O formulário está pronto quando você estiver." },
-};
-
-// Projetos: copie um bloco { ... } para adicionar. "tecnologias" usa os nomes de COMPETENCIAS.
+// Projetos: copie um bloco { ... } para adicionar. A ordem aqui é a ordem no site.
+// "resumo": UMA frase curta. "tecnologias" usa os nomes de COMPETENCIAS.
 // "imagem" fica em public/minhas-imagens/ (sem o arquivo, o cartão mostra "print em breve").
-// "papel" é um selo curto (equipe/individual + destaque). Botões só aparecem se houver "repositorio" ou "demo".
+// Botões só aparecem se houver "repositorio" (Ver código) ou "demo" (Abrir projeto).
 export const PROJETOS = [
-  { id: "memoria-viva", nome: "Memória Viva", categoria: "Instituto PROA", imagem: "/minhas-imagens/projeto-memoria-viva.jpg",
-    resumo: "Ajuda a pessoa a registrar a própria história a partir de fotografias, falando ou escrevendo, do seu jeito. A família participa enviando fotos e relatos, mas quem conta, decide e confirma o que é verdade é sempre a dona da conta.",
-    papel: "Em equipe · Demo Day 2026",
+  { id: "memoria-viva", nome: "Memória Viva", imagem: "/minhas-imagens/projeto-memoria-viva.jpg",
+    resumo: "Plataforma para registrar a própria história a partir de fotos, com a família participando.",
     tecnologias: ["React"], repositorio: "", demo: "https://memoria-viva-react.vercel.app/" },
-  { id: "quintal", nome: "Quintal", categoria: "Instituto PROA", imagem: "/minhas-imagens/projeto-quintal.jpg",
-    resumo: "Rede social para animais, inspirada na estrutura e nas funcionalidades de redes como o Instagram.",
-    papel: "Individual",
+  { id: "quintal", nome: "Quintal", imagem: "/minhas-imagens/projeto-quintal.jpg",
+    resumo: "Rede social para animais, inspirada no Instagram.",
     tecnologias: ["React"], repositorio: "", demo: "https://viniciusaraujo-coder.github.io/quintal-clone-instagram/" },
-  { id: "loja-impossivel", nome: "Loja Impossível", categoria: "Instituto PROA", imagem: "/minhas-imagens/projeto-loja-impossivel.jpg",
-    resumo: "Loja online de produtos que não existem, feita do zero para estudar a base da web.",
-    papel: "Individual",
+  { id: "loja-impossivel", nome: "Loja Impossível", imagem: "/minhas-imagens/projeto-loja-impossivel.jpg",
+    resumo: "Loja online de produtos que não existem, feita do zero.",
     tecnologias: ["HTML", "CSS", "JavaScript"], repositorio: "", demo: "https://viniciusaraujo-coder.github.io/Loja_Escola/" },
-  { id: "multiverso-news", nome: "Multiverso News", categoria: "Instituto PROA", imagem: "/minhas-imagens/projeto-multiverso-news.jpg",
-    resumo: "Site de notícias geek que simula um portal jornalístico, com matérias fictícias inspiradas em universos da cultura pop.",
-    papel: "Individual",
+  { id: "multiverso-news", nome: "Multiverso News", imagem: "/minhas-imagens/projeto-multiverso-news.jpg",
+    resumo: "Portal de notícias geek com matérias fictícias da cultura pop.",
     tecnologias: ["HTML", "CSS"], repositorio: "https://github.com/ViniciusAraujo-Coder/Multiverso_News", demo: "" },
-  { id: "mini-rpg", nome: "Mini RPG em Python", categoria: "Faculdade", imagem: "/minhas-imagens/projeto-mini-rpg.jpg",
-    resumo: "Jogo no terminal inspirado em Undertale, feito para a disciplina de Inteligência Artificial, explorando mecânicas narrativas e interação inteligente com o jogador.",
-    papel: "Individual",
+  { id: "mini-rpg", nome: "Mini RPG em Python", imagem: "/minhas-imagens/projeto-mini-rpg.jpg",
+    resumo: "Jogo de terminal inspirado em Undertale, feito para a disciplina de IA da faculdade.",
     tecnologias: ["Python"], repositorio: "https://github.com/ViniciusAraujo-Coder/Jogo-Undertale", demo: "" },
-  { id: "hackathon-atria", nome: "Hackathon Atria — 2º lugar", categoria: "Hackathon", imagem: "/minhas-imagens/projeto-hackathon-atria.jpg",
-    resumo: "Dashboard com automação para controlar o estoque e a validade dos produtos de uma empresa do agronegócio.",
-    papel: "Em equipe · 2º lugar",
+  { id: "hackathon-atria", nome: "Hackathon Atria — 2º lugar", imagem: "/minhas-imagens/projeto-hackathon-atria.jpg",
+    resumo: "Dashboard com automação para controlar o estoque e a validade de produtos do agronegócio.",
     tecnologias: ["n8n"], repositorio: "", demo: "" },
 ];
 
 // Competências, agrupadas como no currículo. "icone" = arquivo em public/assets/tech/ (vazio = aparece o nome).
-// "aprendi" é opcional: aparece no painel de detalhe.
 export const COMPETENCIAS = [
-  { nome: "Java",       icone: "java",       grupo: "Back-end · por trás do site",  tipo: "Linguagem",  aprendi: "Instituto PROA · Desenvolvimento Web Java" },
-  { nome: "Python",     icone: "python",     grupo: "Back-end · por trás do site",  tipo: "Linguagem",  aprendi: "Curso em Vídeo · Python 3 (80h)" },
-  { nome: "C#",         icone: "csharp",     grupo: "Back-end · por trás do site",  tipo: "Linguagem",  aprendi: "Alura · Praticando C# (38h)" },
-  { nome: "HTML",       icone: "html5",      grupo: "Front-end · a parte que você vê", tipo: "Linguagem",  aprendi: "Curso em Vídeo · HTML5 & CSS3 (120h)" },
-  { nome: "CSS",        icone: "css3",       grupo: "Front-end · a parte que você vê", tipo: "Linguagem",  aprendi: "Curso em Vídeo · HTML5 & CSS3 (120h)" },
-  { nome: "JavaScript", icone: "javascript", grupo: "Front-end · a parte que você vê", tipo: "Linguagem" },
-  { nome: "React",      icone: "react",      grupo: "Front-end · a parte que você vê", tipo: "Biblioteca" },
-  { nome: "Figma",      icone: "figma",      grupo: "Design de telas", tipo: "Design" },
-  { nome: "Canva",      icone: "canva",      grupo: "Design de telas", tipo: "Design" },
-  { nome: "n8n",        icone: "",           grupo: "Automação e dados", tipo: "Automação",  aprendi: "Usado no Hackathon Atria (2º lugar)" },
-  { nome: "Power BI",   icone: "",           grupo: "Automação e dados", tipo: "Dados" },
-  { nome: "Git",        icone: "git",        grupo: "Ferramentas", tipo: "Versionamento" },
-  { nome: "GitHub",     icone: "github",     grupo: "Ferramentas", tipo: "Plataforma" },
-  { nome: "Copilot",    icone: "",           grupo: "Ferramentas", tipo: "IA generativa", aprendi: "USJT · IA Generativa e Copilot (51h)" },
+  { nome: "Java",       icone: "java",       grupo: "Back-end · por trás do site" },
+  { nome: "Python",     icone: "python",     grupo: "Back-end · por trás do site" },
+  { nome: "C#",         icone: "csharp",     grupo: "Back-end · por trás do site" },
+  { nome: "HTML",       icone: "html5",      grupo: "Front-end · a parte que você vê" },
+  { nome: "CSS",        icone: "css3",       grupo: "Front-end · a parte que você vê" },
+  { nome: "JavaScript", icone: "javascript", grupo: "Front-end · a parte que você vê" },
+  { nome: "React",      icone: "react",      grupo: "Front-end · a parte que você vê" },
+  { nome: "Figma",      icone: "figma",      grupo: "Design de telas" },
+  { nome: "Canva",      icone: "canva",      grupo: "Design de telas" },
+  { nome: "n8n",        icone: "",           grupo: "Automação e dados" },
+  { nome: "Power BI",   icone: "",           grupo: "Automação e dados" },
+  { nome: "Git",        icone: "git",        grupo: "Ferramentas" },
+  { nome: "GitHub",     icone: "github",     grupo: "Ferramentas" },
+  { nome: "Copilot",    icone: "",           grupo: "Ferramentas" },
 ];
 export const POR_NOME = Object.fromEntries(COMPETENCIAS.map(c => [c.nome, c]));
 

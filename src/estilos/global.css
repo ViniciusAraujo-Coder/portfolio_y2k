@@ -10,14 +10,14 @@
 
    REGRAS DE COMPOSIÇÃO
    - Cada seção tem 1 peça principal (janela grande) + no máximo 2 grupos de apoio.
-   - Recortes ficam em GRUPOS com sentido (ex.: diálogo + disquetes; flip phone + SMS),
+   - Recortes ficam em GRUPOS com sentido (ex.: flip phone + SMS),
      nunca soltos aleatoriamente. Sempre sobra uma área de respiro.
    - Cada recorte aparece em uma única seção (sem repetir a mesma imagem).
    - Recortes são imagens reais (PNG/WEBP); CSS só desenha interface (janelas, botões).
 
    ORDEM: Tokens → Base → Cenários → Botões → Janelas → Menu → Abertura
           → Seções/títulos → Sobre → Projetos → Trajetória → Competências → Contato
-          → Rodapé → Zezinho → Revelar → Animações → Responsivo → Movimento reduzido
+          → Rodapé → Revelar → Animações → Responsivo → Movimento reduzido
    ========================================================= */
 
 /* ---------- Tokens ---------- */
@@ -341,7 +341,7 @@ mark { padding: 0 .15em; color: inherit; background: var(--lima); }
 
 
 /* ---------- 02 · Projetos (fundo digital) ----------
-   janelas em cascata (explorador → projeto aberto) · grupo "salvar" embaixo, à esquerda */
+   carrossel de cartões logo abaixo do título (o CSS fica no bloco PROJETOS — CARROSSEL) */
 .colagem-projetos .cabecalho { grid-column: 1 / 9; grid-row: 1; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
@@ -350,8 +350,6 @@ mark { padding: 0 .15em; color: inherit; background: var(--lima); }
 .acoes { display: flex; flex-wrap: wrap; gap: 6px; }
 .acoes .botao { min-height: 34px; padding: 5px 12px; font-size: 12px; }
 
-.salvar { grid-column: 1 / 7; grid-row: 4; display: flex; align-items: flex-end; margin-top: -28px; z-index: 4; }
-.sticker-disquetes { width: min(300px, 44%); margin: 0 0 -24px -6px; rotate: 6deg; }
 /* cubo de arame: elemento de HUD, no canto livre ao lado do título */
 .sticker-cubo { grid-column: 10 / 13; grid-row: 1 / 3; justify-self: center; align-self: start; width: 150px; opacity: .9; filter: drop-shadow(0 0 14px rgba(77,232,255,.55)); }
 
@@ -387,26 +385,11 @@ mark { padding: 0 .15em; color: inherit; background: var(--lima); }
 .grupo h3 { padding: 5px 10px; color: #fff; background: linear-gradient(90deg, #2b5be0, #6f9bff); font: 700 12px var(--ui); }
 .grupo:nth-child(2n) h3 { color: #fff; background: var(--barra-grafite); }
 .tecs { display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 8px; }
-.tec { display: grid; justify-items: center; gap: 4px; width: 64px; padding: 4px 2px; border: 1px dashed transparent; background: none; font-size: 11px; cursor: pointer; overflow-wrap: anywhere; }
-.tec:hover { border-color: #9aa6c4; }
+.tec { display: grid; justify-items: center; gap: 4px; width: 64px; padding: 4px 2px; border: 1px dashed transparent; background: none; font-size: 11px; overflow-wrap: anywhere; }
 .tec-bolha { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid; border-color: #fff #8a8a8a #8a8a8a #fff; background: linear-gradient(#fff, #e6e2d3); }
 .tec-bolha img { width: 26px; }
-.tec[aria-pressed="true"] > span:last-child { color: #fff; background: #316ac5; }
-.tec[aria-pressed="true"] .tec-bolha { outline: 1px dotted #316ac5; outline-offset: 2px; }
 .mono { font: 900 10px var(--mono); text-align: center; }
 
-.comp-janela { grid-column: 8 / 13; grid-row: 2; margin-top: 90px; z-index: 3; }
-.comp-info { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 14px; align-items: center; margin: 8px; padding: 16px; border: 2px solid; border-color: #fff #808080 #808080 #fff; background: var(--cinza-98); transition: opacity .25s; }
-.comp-info.trocando { opacity: .2; }
-.comp-info-logo { display: grid; place-items: center; width: 60px; height: 60px; border: 2px solid; border-color: #808080 #fff #fff #808080; background: #fff; }
-.comp-info-logo img { width: 38px; }
-.comp-info .tipo { color: var(--azul-xp); font: 700 11px var(--mono); text-transform: uppercase; }
-.comp-info h3 { font: 900 22px var(--display); }
-.comp-info .aprendi { grid-column: 1 / -1; padding: 8px; border: 1px solid #808080; background: #fff; font-size: 13px; }
-.usado { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.usado small { width: 100%; font: 700 11px var(--mono); text-transform: uppercase; }
-.usado button { padding: 4px 10px; border: 1px solid; border-color: #fff #3a3a3a #3a3a3a #fff; background: var(--cinza-98); font-size: 12px; cursor: pointer; }
-.usado button:active { border-color: #3a3a3a #fff #fff #3a3a3a; }
 .nenhum { color: #444; font-size: 12px; font-style: italic; }
 
 /* ---------- 05 · Contato (dia de novo) ---------- */
@@ -460,29 +443,6 @@ mark { padding: 0 .15em; color: inherit; background: var(--lima); }
 .tarefa-2 { flex: 1; min-width: 0; background: transparent; box-shadow: none; }
 .bandeja { display: inline-flex; align-items: center; gap: 8px; align-self: stretch; margin-left: auto; padding: 0 14px; background: #0f8ef0; border-left: 1px solid #0b5fbf; }
 
-/* ---------- Zezinho ---------- */
-.assistente { position: fixed; z-index: 55; right: 14px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; align-items: flex-end; width: min(230px, calc(100vw - 24px)); }
-.assistente-balao { position: relative; width: 100%; padding: 0 0 8px; border: 3px solid #0842b8; border-radius: 8px 8px 4px 4px; color: var(--tinta); background: #fffbe0; box-shadow: var(--sombra); }
-.assistente-balao[hidden] { display: none; }
-.assistente-balao::after { content: ""; position: absolute; right: 36px; bottom: -12px; width: 18px; height: 18px; transform: rotate(45deg); border-right: 3px solid #0842b8; border-bottom: 3px solid #0842b8; background: #fffbe0; }
-.assistente-balao-topo { display: flex; align-items: center; justify-content: space-between; padding: 2px 3px 2px 10px; color: #fff; background: var(--barra-xp); font-size: 13px; }
-.assistente-controle { width: 32px; height: 28px; border: 1px solid #fff; border-radius: 3px; color: #fff; background: linear-gradient(#5b9cff, #1f63e6); font-size: 18px; cursor: pointer; }
-.assistente-fala { margin: 8px 10px; font-size: 13px; line-height: 1.45; }
-.assistente-acao { display: inline-flex; align-items: center; min-height: 34px; margin: 0 10px; padding: 4px 12px; border: 1px solid #003c74; border-radius: 4px; color: #111; text-decoration: none; background: linear-gradient(#fff, #e6e2d3); font-weight: 700; font-size: 12px; }
-.assistente-acao[hidden] { display: none; }
-.assistente-balao-rodape { display: flex; justify-content: space-between; gap: 6px; margin: 6px 6px 0; }
-.assistente-controle-texto { min-height: 32px; padding: 4px; border: 0; color: #365373; background: transparent; font-size: 10px; font-weight: 700; text-decoration: underline; cursor: pointer; }
-.assistente-botao { position: relative; display: grid; place-items: end center; width: 96px; height: 118px; margin-top: 8px; padding: 0; border: 0; background: transparent; cursor: pointer; filter: drop-shadow(2px 4px 2px rgba(0,0,0,.3)); transition: transform .2s; }
-.assistente-botao:hover { transform: translateY(-3px) rotate(-3deg); }
-.assistente-botao img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
-/* dormindo: o mesmo GIF, escurecido e meio transparente (a bolinha de status fica cinza) */
-.assistente.dormindo .zezinho-animado { filter: grayscale(.7) brightness(.6); opacity: .75; }
-.assistente-status { position: absolute; right: 8px; bottom: 8px; width: 11px; height: 11px; border: 2px solid #fff; border-radius: 50%; background: #3fe03f; }
-.assistente.dormindo .assistente-status { background: #a9c6e0; }
-.assistente.falando .assistente-botao, .assistente.aceno .assistente-botao { animation: pet-pop .3s ease-in-out 3 alternate; }
-.assistente.voando .assistente-botao { animation: pet-fly .62s ease-out; }
-body:not(.paisagem-pronta) .assistente { opacity: 0; visibility: hidden; pointer-events: none; } /* visibility: tira do Tab enquanto está invisível */
-.assistente { transition: opacity .5s, visibility .5s; }
 
 /* ---------- Revelar ao rolar: janelas sobem e aparecem, sem quicar ---------- */
 .js:not(.reduz) .revela { opacity: 0; transform: rotate(var(--r, 0deg)) translateY(28px); transition: opacity .5s ease, transform .6s cubic-bezier(.22, 1, .36, 1); transition-delay: calc(var(--i, 0) * .07s); }
@@ -497,8 +457,6 @@ body:not(.paisagem-pronta) .assistente { opacity: 0; visibility: hidden; pointer
 @keyframes carregar { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes giro { to { rotate: 360deg; } }
 @keyframes subir { to { transform: translate(30px, -115vh); } }
-@keyframes pet-pop { to { transform: translateY(-4px) rotate(3deg); } }
-@keyframes pet-fly { 50% { transform: translate(-30px, -22px) rotate(-12deg); } }
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1100px) {
@@ -526,11 +484,9 @@ body:not(.paisagem-pronta) .assistente { opacity: 0; visibility: hidden; pointer
   .colagem > * { width: 100%; max-width: 640px; }
   .mural { height: 380px; max-width: 460px; align-self: center; }
   .notepad, .painel, .cdplayer, .cartao { align-self: flex-start; }
-  .salvar { margin-top: -6px; }
   .trilha { height: 300px; max-width: 420px; align-self: flex-end; margin-top: -30px; }
   .cd-girando { width: 44%; right: 4%; }
   .sticker-portatil { left: 0; top: 110px; width: 60%; }
-  .comp-janela { align-self: flex-end; margin-top: -24px; }
   .sticker-cubo { position: absolute; top: 0; right: 0; width: 100px; }
   .sticker-globo { display: none; }
   .email-janela { align-self: flex-end; margin: -20px 0 0; }
@@ -551,18 +507,12 @@ body:not(.paisagem-pronta) .assistente { opacity: 0; visibility: hidden; pointer
   .sticker-brilho, .sticker-halo { display: none; }
   .balao-1 { display: none; }
   .mural { height: 330px; }
-  .salvar { flex-wrap: wrap; }
-  .sticker-disquetes { width: 220px; margin: -10px 0 0 auto; }
   .cd-visor span:last-child { display: none; }
   .campos-duplos { grid-template-columns: minmax(0, 1fr); }
   .email-janela { margin-left: 0; }
   .sticker-flip { width: 100px; }
   .tarefa { display: none; }
   .tarefa-2 { display: inline-flex; font-size: 10px; white-space: normal; }
-  .assistente { width: 150px; }
-  .assistente-botao { width: 64px; height: 78px; }
-  .assistente-balao { max-height: 34svh; overflow-y: auto; }
-  .assistente-fala { font-size: 12px; }
 }
 @media (max-width: 700px) and (max-height: 760px) {
   .webcam { width: 27%; }
@@ -720,15 +670,9 @@ mark { color: var(--preto); }
 .grupo { border-color: var(--linha); background: #111621; }
 .grupo h3 { background: linear-gradient(90deg, #1d2bd8, #10305a); }
 .tec { color: var(--tinta); }
-.tec:hover { border-color: #3a4456; }
-.tec-bolha, .comp-info-logo { border: 1px solid #9aa3b2; background: linear-gradient(#ffffff, #cfd6e0 50%, #9aa3b2); box-shadow: 0 0 10px rgba(77,232,255,.15); } /* ladrilhos cromados: os logos precisam de fundo claro */
-.tec-bolha .mono, .comp-info-logo .mono { color: var(--preto); } /* nomes sem ícone, sobre o ladrilho cromado */
+.tec-bolha { border: 1px solid #9aa3b2; background: linear-gradient(#ffffff, #cfd6e0 50%, #9aa3b2); box-shadow: 0 0 10px rgba(77,232,255,.15); } /* ladrilhos cromados: os logos precisam de fundo claro */
+.tec-bolha .mono { color: var(--preto); } /* nomes sem ícone, sobre o ladrilho cromado */
 &
-.tec[aria-pressed="true"] .tec-bolha { outline: 1px solid var(--ciano); box-shadow: 0 0 14px var(--brilho-ciano); }
-.comp-info { border: 1px solid var(--linha); background: #0f141d; }
-.comp-info .tipo { color: var(--ciano); }
-.comp-info .aprendi { color: var(--tinta); border-color: var(--linha); background: #0a0d13; }
-.usado button { color: var(--tinta); border: 1px solid #4a5466; background: linear-gradient(#2a3140, #11151c); }
 .nenhum { color: var(--tinta-2); }
 
 /* ---------- Contato ---------- */
@@ -752,13 +696,6 @@ mark { color: var(--preto); }
 .tarefa-2 { color: var(--tinta-2); background: transparent; box-shadow: none; }
 .bandeja { color: var(--ciano); background: #07090d; border-left-color: var(--linha); font-family: var(--mono); }
 
-/* ---------- Zezinho ---------- */
-.assistente-balao { border: 1px solid #3a4456; color: var(--tinta); background: #0d1118; }
-.assistente-balao::after { border-color: #3a4456; background: #0d1118; }
-.assistente-balao-topo { background: var(--barra-xp); border-bottom: 1px solid rgba(77,232,255,.35); }
-.assistente-controle { border-color: #4a5466; background: linear-gradient(#2a3140, #11151c); }
-.assistente-acao { color: var(--tinta); border-color: #4a5466; background: linear-gradient(#2a3140, #11151c); }
-.assistente-controle-texto { color: var(--tinta-2); }
 
 @media (max-width: 960px) {
   .geo-mira { position: absolute; top: 0; right: 0; width: 90px; }
@@ -802,16 +739,14 @@ html { scroll-padding-top: 64px; }
   .notepad { grid-column: 1 / 8; grid-row: 2; }
   .mural { grid-column: 8 / 13; grid-row: 1 / 3; align-self: center; height: 450px; }
 
-  /* Projetos: explorador e projeto aberto lado a lado; "salvar" embaixo do explorador */
+  /* Projetos: título em cima, vitrine de cartões embaixo */
   .colagem-projetos .cabecalho { grid-column: 1 / 10; grid-row: 1; }
   .sticker-cubo { grid-column: 10 / 13; grid-row: 1; justify-self: end; width: 104px; }
-  .salvar { grid-column: 1 / 6; grid-row: 3; margin-top: 26px; }
 
   .trilha { height: 420px; }
 
-  /* Competências: painel e Propriedades lado a lado; globo embaixo das Propriedades */
+  /* Competências: painel à esquerda, globo à direita */
   .painel { grid-column: 1 / 9; grid-row: 2 / 4; }
-  .comp-janela { grid-column: 9 / 13; grid-row: 2; margin: 14px 0 0 6px; }
   .sticker-globo { grid-column: 9 / 13; grid-row: 3; width: 130px; margin-top: 24px; }
 
   /* Contato: cartão + celular à esquerda, formulário à direita */
@@ -828,7 +763,7 @@ html { scroll-padding-top: 64px; }
 
 /* coluna única: sem margens negativas, para nenhuma janela cobrir a de cima */
 @media (max-width: 960px) {
-  .salvar, .trilha, .comp-janela, .email-janela, .celular { margin-top: 0; }
+  .trilha, .email-janela, .celular { margin-top: 0; }
 }
 
 /* =========================================================
@@ -889,11 +824,8 @@ html { scroll-padding-top: 64px; }
   .notepad-corpo .destaque { font-size: 19px; }
   .sobre-acoes .botao { flex: 1 1 auto; }
   .mural { height: 270px; }
-  .salvar { align-items: center; justify-content: space-between; gap: 10px; flex-wrap: nowrap; }
-  .sticker-disquetes { width: 42%; margin: 0; }
   .trilha { height: 230px; }
   .comp-grupos { grid-template-columns: minmax(0, 1fr); padding: 10px; }
-  .assistente-botao { width: 56px; height: 68px; }
 }
 /* cartão do Contato um pouco mais compacto: com o botão do currículo ele ganhou uma linha */
 @media (min-width: 961px) {
@@ -915,8 +847,6 @@ html { scroll-padding-top: 64px; }
   font: 400 16px/1.5 var(--ui);
 }
 .aba { min-height: 40px; padding: 6px 22px; font-size: 14px; }
-.aprendi small, .usado small { display: block; margin-bottom: 2px; color: var(--ciano); font: 700 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-.comp-info .aprendi { font-size: 14px; }
 /* letras maiores onde estava miúdo */
 .acoes .botao, .redes .botao { font-size: 13px; }
 .tec { font-size: 12px; }
@@ -925,12 +855,11 @@ html { scroll-padding-top: 64px; }
 .form-nota { font-size: 12px; }
 
 /* CELULAR: só o essencial. Saem os enfeites que disputam a tela pequena
-   (filtros de projeto, CD + Discman, disquetes, satélite, estrelas e mira ao lado dos títulos). */
+   (CD + Discman, satélite, estrelas e mira ao lado dos títulos). */
 @media (max-width: 700px) {
   .cabecalho-texto { font-size: 15px; }
-  .trilha, .sticker-disquetes, .sticker-satelite, .estrelas, .geo-mira, .sticker-cubo, .etiqueta-2 { display: none !important; }
+  .trilha, .sticker-satelite, .estrelas, .geo-mira, .sticker-cubo, .etiqueta-2 { display: none !important; }
   .mural { height: 230px; max-width: 340px; }
-  .salvar { justify-content: center; }
   .celular { justify-content: center; }
   .sticker-flip { width: 80px; }
   .janela-barra { font-size: 13px; }
@@ -1030,10 +959,10 @@ html { scroll-padding-top: 64px; }
 }
 
 /* =========================================================
-   PROJETOS NO CELULAR — CARROSSEL DE CARTÕES
-   PC/tablet usam o explorador com pastas (.so-pc); no celular (≤ 700px) ele some e
-   aparece o carrossel (.so-celular): um cartão grande por vez, deslizando para o lado.
-   scroll-snap = o navegador "encaixa" cada cartão no centro ao soltar o dedo.
+   PROJETOS — CARROSSEL DE CARTÕES (todas as telas)
+   Uma fileira que desliza para o lado. --por = quantos cartões cabem por vez:
+   3 no PC, 2 no tablet, 1 no celular (o hook useCarrossel só mede, quem decide é o CSS).
+   scroll-snap "encaixa" o cartão ao soltar o dedo/roda; a troca automática fica no hook.
    ========================================================= */
 .so-celular { display: none; }
 @media (max-width: 700px) {
@@ -1041,24 +970,27 @@ html { scroll-padding-top: 64px; }
   .so-celular { display: block; }
   span.so-celular { display: inline; }
 }
-.carrossel-trilho {
-  display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
-  scrollbar-width: none; /* a barra de rolagem some: quem indica que há mais são as bolinhas */
+.vitrine { grid-column: 1 / 13; grid-row: 2; z-index: 2; --por: 3; --vao: 16px; }
+.vitrine-lista {
+  position: relative; /* referência do offsetLeft dos cartões (usado para saber onde cada um começa) */
+  display: flex; gap: var(--vao); padding: 4px 8px 18px 2px; /* respiro para a sombra dos cartões */
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 2px; overscroll-behavior-x: contain;
+  scrollbar-width: none; /* a barra de rolagem some: quem indica que há mais são as bolinhas e as setas */
 }
-.carrossel-trilho::-webkit-scrollbar { display: none; }
-.carrossel-trilho > li { flex: 0 0 100%; padding: 4px 6px 14px; scroll-snap-align: center; }
-.carrossel-trilho:focus-visible { outline-offset: -3px; }
+.vitrine-lista::-webkit-scrollbar { display: none; }
+.vitrine-lista > li { flex: 0 0 calc((100% - (var(--por) - 1) * var(--vao)) / var(--por)); scroll-snap-align: start; }
 .projeto-cartao {
-  display: flex; flex-direction: column; overflow: hidden;
+  display: flex; flex-direction: column; height: 100%; overflow: hidden;
   border: 1px solid #3a4456; border-radius: 10px;
   background: linear-gradient(160deg, rgba(22, 28, 40, .97), rgba(8, 10, 15, .97));
   box-shadow: 6px 8px 0 rgba(0, 0, 0, .45);
+  transition: border-color .25s, box-shadow .25s;
 }
-/* passar o mouse OU ser apontado pelas Competências/Zezinho: o cartão acende em ciano */
-.projeto-cartao:hover, .projeto-cartao[data-aceso="true"] { border-color: var(--ciano); box-shadow: 0 0 0 1px var(--ciano), 0 10px 28px rgba(77, 232, 255, .22); }
+.projeto-cartao:hover, .projeto-cartao:focus-within { border-color: var(--ciano); box-shadow: 0 0 0 1px var(--ciano), 0 10px 28px rgba(77, 232, 255, .22); }
+/* print mostra o topo da página, onde fica a "cara" do site */
 .projeto-tela { aspect-ratio: 16 / 10; border-bottom: 1px solid var(--linha); background: #0b0e14; }
-.projeto-tela img { transition: transform .5s cubic-bezier(.22, 1, .36, 1); }
-.projeto-cartao:hover .projeto-tela img { transform: scale(1.05); } /* a imagem dá um leve zoom: dinâmico e barato */
+.projeto-tela img { object-position: top center; transition: transform .5s cubic-bezier(.22, 1, .36, 1); }
+.projeto-cartao:hover .projeto-tela img { transform: scale(1.04); } /* leve zoom: dinâmico e barato */
 /* sem o print ainda: uma "tela de monitor" com grade, no lugar do aviso técnico */
 .projeto-tela.vazio::after {
   content: "print em breve"; inset: 0; border: 0; color: var(--tinta-2);
@@ -1068,90 +1000,35 @@ html { scroll-padding-top: 64px; }
     radial-gradient(ellipse at 50% 40%, rgba(35, 48, 255, .35), transparent 70%), #0b0e14;
   font: 700 11px var(--mono); letter-spacing: .14em; text-transform: uppercase;
 }
-.projeto-info { display: flex; flex: 1; flex-direction: column; align-items: flex-start; gap: 6px; padding: 14px 16px 16px; }
-.projeto-selo { padding: 2px 8px; color: #fff; background: var(--azul-eletrico); font: 700 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-.projeto-info h3 { color: var(--tinta); font: 900 19px/1.15 var(--display); letter-spacing: -.02em; }
+.projeto-info { display: flex; flex: 1; flex-direction: column; align-items: stretch; gap: 6px; padding: 14px 16px 16px; }
+.projeto-info h3 { color: var(--tinta); font: 900 20px/1.15 var(--display); letter-spacing: -.02em; }
 .projeto-resumo { color: #c4cbe0; font-size: 14px; line-height: 1.45; }
-.projeto-papel { margin-top: auto; padding-top: 4px; color: var(--ciano); font: 700 12px var(--mono); }
-.projeto-info .chips { margin: 0; }
-.projeto-info .acoes { margin-top: 4px; }
+/* rodapé sempre na base do cartão: os rodapés ficam alinhados entre os cartões */
+.projeto-rodape { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 4px; }
+.projeto-rodape .chips { margin: 0; }
+.projeto-rodape .acoes { display: flex; gap: 6px; margin: 0; }
+.projeto-rodape .botao { min-height: 32px; padding: 4px 12px; }
+.acoes .botao { font-size: 13px; }
 
-.projeto-cartao { height: 100%; }
-.projeto-info h3 { font-size: 22px; }
-.projeto-resumo { font-size: 15px; }
-.projeto-papel { font-size: 13px; }
+/* controles: ‹ bolinhas › e o botão de pausa, centralizados embaixo da fileira */
+.vitrine-controles { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-top: 2px; }
+.seta { width: 38px; min-height: 38px; padding: 0; border-radius: 999px; font-size: 22px; line-height: 1; }
+.pausa { min-height: 32px; padding: 4px 12px; border-radius: 999px; font-size: 12px; }
 /* bolinhas: a ativa vira um tracinho ciano; cada botão tem 28px para o dedo acertar fácil */
-.bolinhas { display: flex; justify-content: center; gap: 2px; margin-top: 2px; }
+.bolinhas { display: flex; justify-content: center; gap: 2px; }
 .bolinha { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; }
 .bolinha i { width: 10px; height: 10px; border: 2px solid var(--ciano); border-radius: 999px; transition: width .25s, background .25s; }
 .bolinha[aria-current="true"] i { width: 24px; background: var(--ciano); }
 
-/* =========================================================
-   PROJETOS NO PC — EXPLORADOR COM PASTAS + PROJETO ABERTO
-   ========================================================= */
-.filtros { display: flex; flex-wrap: wrap; gap: 4px; padding: 6px 8px; border-bottom: 1px solid #c9c5b3; background: var(--bege-xp); }
-.filtro { min-height: 32px; padding: 3px 10px; border: 1px solid transparent; border-radius: 3px; background: transparent; font-size: 12px; font-weight: 700; cursor: pointer; }
-.filtro small { margin-left: 5px; color: var(--tinta-2); }
-.filtro:hover { border-color: #9aa6c4; background: #fff; }
-.filtro[aria-pressed="true"] { border-color: #8a8a8a #fff #fff #8a8a8a; background: #dcd8c6; box-shadow: inset 1px 1px 2px rgba(0,0,0,.15); }
-.projetos-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; padding: 18px 14px; min-height: 200px; background: #fff; }
-.projeto-item { display: grid; justify-items: center; gap: 8px; width: 100%; padding: 10px 4px 8px; border: 1px dashed transparent; background: none; font-size: 12px; text-align: center; cursor: pointer; }
-.projeto-item:hover { border-color: #9aa6c4; background: #eef3ff; }
-.projeto-item strong { padding: 1px 4px; overflow-wrap: anywhere; font-weight: 400; line-height: 1.3; }
-.projeto-item small { display: block; color: var(--tinta-2); font-size: 10px; }
-.projeto-item[aria-current="true"] strong { color: #fff; background: #316ac5; }
-.projeto-item[aria-current="true"] .pasta { filter: brightness(.85) sepia(.3) hue-rotate(180deg) saturate(2); }
-/* ícone de pasta: interface (como os botões), não decoração */
-.pasta { position: relative; width: 62px; height: 46px; margin-top: 8px; border: 1px solid #b98a12; border-radius: 2px 5px 4px 4px; background: linear-gradient(#ffe68f, #f3bf35); box-shadow: 2px 3px 0 rgba(0,0,0,.12); }
-.pasta::before { content: ""; position: absolute; left: -1px; top: -9px; width: 26px; height: 10px; border: 1px solid #b98a12; border-bottom: 0; border-radius: 4px 6px 0 0; background: #f6cc4c; }
-.pasta::after { content: ""; position: absolute; left: 6px; right: 8px; top: -5px; height: 16px; border: 1px solid #c9c9c9; background: #fff; rotate: -4deg; z-index: -1; }
-.janela-status { padding: 3px 10px; border-top: 1px solid #c9c5b3; color: var(--tinta-2); background: var(--bege-xp); font-size: 11px; }
-.projeto-destaque { grid-column: 4 / 13; grid-row: 3; margin-top: -50px; z-index: 3; transition: opacity .3s, transform .4s; }
-.projeto-destaque[data-trocando="true"] { opacity: .2; }
-.destaque-corpo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 16px; padding: 12px; }
-.destaque-corpo .tela { aspect-ratio: 4 / 3; border: 2px solid; border-color: #808080 #fff #fff #808080; }
-.destaque-corpo .info { min-width: 0; }
-.categoria { display: inline-block; padding: 1px 8px; color: #fff; background: var(--azul-eletrico); font: 700 10px var(--mono); text-transform: uppercase; }
-.destaque-corpo h3 { margin: 6px 0; font: 900 clamp(19px, 2vw, 25px)/1.15 var(--display); letter-spacing: -.02em; overflow-wrap: anywhere; }
-.resumo, .papel { margin-bottom: 8px; color: #222; font-size: 13px; }
-.papel b { color: var(--azul-xp); }
-.filtro { color: var(--tinta); }
-.filtro small { color: var(--tinta-2); }
-.filtro:hover { border-color: #3a4456; background: #1b2230; }
-.filtro[aria-pressed="true"] { color: var(--preto); border-color: var(--ciano); background: var(--ciano); box-shadow: 0 0 12px var(--brilho-ciano); }
-.filtro[aria-pressed="true"] small { color: var(--preto); }
-.projetos-lista { background: #0a0d13; }
-.projeto-item { color: var(--tinta); }
-.projeto-item:hover { border-color: #3a4456; background: #131a26; }
-.projeto-item[aria-current="true"] strong { color: var(--preto); background: var(--ciano); }
-.projeto-item[aria-current="true"] .pasta { filter: drop-shadow(0 0 10px var(--brilho-ciano)); }
-.janela-status { border-color: var(--linha); }
-.resumo, .papel { color: var(--tinta); }
-.papel b { color: var(--ciano); }
-.destaque-corpo .tela { border: 1px solid #3a4456; }
-.projeto-item { font-size: 13px; }
-.projeto-item small { font-size: 11px; }
-.janela-status { font-size: 12px; color: var(--tinta); }
-.resumo, .papel { font-size: 14px; line-height: 1.5; }
-.filtro { font-size: 13px; }
-.acoes .botao { font-size: 13px; }
-@media (min-width: 961px) {
-  .explorer { grid-column: 1 / 6; grid-row: 2; z-index: 2; }
-  .projetos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: 0; padding: 12px; }
-  .projeto-destaque { grid-column: 6 / 13; grid-row: 2 / 4; margin: 10px 0 0 6px; z-index: 3; }
-}
-@media (min-width: 961px) and (max-height: 820px) {
-  .projetos-lista { gap: 4px; padding: 8px; }
-  .projeto-item { padding: 6px 4px 4px; gap: 4px; }
-}
 @media (max-width: 960px) {
-  .projeto-destaque { margin-top: 0; }
+  .vitrine { --por: 2; }
 }
 @media (max-width: 700px) {
-  .destaque-corpo { grid-template-columns: minmax(0, 1fr); }
-  .projetos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; min-height: 0; padding: 10px; }
-  .pasta { width: 50px; height: 38px; }
-  .destaque-corpo .tela { aspect-ratio: 16 / 9; }
+  .vitrine { --por: 1; --vao: 12px; }
+  .vitrine-lista { padding: 4px 6px 14px 2px; }
+  .seta { display: none; } /* no celular é só deslizar */
+  .projeto-info h3 { font-size: 22px; }
+  .projeto-resumo { font-size: 15px; }
 }
 
 
@@ -1267,8 +1144,7 @@ html { scroll-padding-top: 64px; }
    COMPETÊNCIAS — CARTÕES POR GRUPO + ÍCONES CROMADOS
    Mesmo visual da Trajetória: cada grupo é um cartão (faixa ciano em cima,
    nome em destaque + explicação curta), ícones maiores em ladrilho cromado.
-   A tecnologia escolhida ganha anel ciano; os detalhes trocam com um deslize curto.
-   Celular: os detalhes abrem logo abaixo do grupo tocado (.comp-aqui).
+   Só leitura: nada para clicar, os ícones entram um depois do outro quando o painel aparece.
    ========================================================= */
 .comp-grupos {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 14px;
@@ -1286,38 +1162,17 @@ html { scroll-padding-top: 64px; }
 }
 .grupo h3 small { color: var(--ciano); font: 700 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .tecs { gap: 2px; padding: 8px 6px 10px; }
-.tec { width: 74px; gap: 6px; padding: 6px 2px; border: 0; border-radius: 10px; color: var(--tinta); font-size: 12px; transition: transform .25s cubic-bezier(.22, 1, .36, 1); }
-.tec:hover { border: 0; transform: translateY(-3px); }
+.tec { width: 74px; gap: 6px; padding: 6px 2px; border: 0; border-radius: 10px; color: var(--tinta); font-size: 12px; }
 .tec-bolha {
   width: 48px; height: 48px; border: 1px solid #9aa3b2; border-radius: 12px;
   background: linear-gradient(#ffffff, #cfd6e0 50%, #9aa3b2); box-shadow: 0 4px 10px rgba(0, 0, 0, .4);
   transition: box-shadow .25s, outline-color .25s;
 }
 .tec-bolha img { width: 28px; }
-.tec[aria-pressed="true"] .tec-bolha { outline: 2px solid var(--ciano); outline-offset: 3px; box-shadow: 0 4px 10px rgba(0, 0, 0, .4), 0 0 18px rgba(77, 232, 255, .55); }
-.tec[aria-pressed="true"] > span:last-child { padding: 0 6px; border-radius: 4px; color: var(--preto); background: var(--ciano); }
 /* os ícones entram um depois do outro quando o painel aparece */
 .painel.visivel .tecs > li { animation: etapa-entra .45s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(.25s + var(--n, 0) * .04s); }
 
 /* detalhes */
-.comp-info {
-  grid-template-columns: auto minmax(0, 1fr); gap: 12px 16px; margin: 10px; padding: 18px;
-  border: 1px solid var(--linha); border-top: 2px solid var(--ciano); border-radius: 4px 4px 12px 12px;
-  background: radial-gradient(ellipse 80% 70% at 0% 0%, rgba(77, 232, 255, .14), transparent 65%), #0e131c;
-  transition: opacity .2s, transform .2s;
-}
-.comp-info.trocando { opacity: 0; transform: translateY(8px); }
-.comp-info-logo { width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 6px 14px rgba(0, 0, 0, .45), 0 0 18px rgba(77, 232, 255, .25); }
-.comp-info-logo img { width: 44px; }
-.comp-info .tipo { color: var(--ciano); font: 700 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-.comp-info h3 {
-  width: fit-content; font: 900 30px/1.05 var(--display); letter-spacing: -.02em;
-  background: linear-gradient(180deg, #ffffff 0%, #cfe6ff 45%, #6b86ff 55%, #e7f0ff 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.comp-info .aprendi { padding: 10px 12px; border: 1px solid var(--linha); border-left: 3px solid var(--ciano); border-radius: 0 8px 8px 0; background: #0a0d13; }
-.usado button { padding: 6px 12px; border: 1px solid var(--ciano); border-radius: 999px; color: var(--ciano); background: transparent; font-weight: 700; transition: background .2s, color .2s; }
-.usado button:hover, .usado button:focus-visible { color: var(--preto); background: var(--ciano); }
 
 @media (min-width: 961px) and (max-height: 820px) {
   .comp-grupos { gap: 10px; padding: 12px; }
@@ -1328,13 +1183,9 @@ html { scroll-padding-top: 64px; }
   .comp-grupos { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 10px; }
   .tecs { justify-content: flex-start; }
   .tec { width: 72px; }
-  .comp-aqui { padding: 0 8px 10px; }
-  .comp-aqui .comp-info { margin: 0; padding: 14px; }
-  .comp-aqui .comp-info-logo { width: 58px; height: 58px; }
-  .comp-aqui .comp-info h3 { font-size: 24px; }
 }
 /* janelas retas: com cartões alinhados dentro, inclinação parece erro */
-.painel, .comp-janela { --r: 0deg !important; }
+.painel { --r: 0deg !important; }
 
 /* =========================================================
    CONTATO — CARTÃO DE PERFIL + CANAIS + FORMULÁRIO
@@ -1438,7 +1289,7 @@ html { scroll-padding-top: 64px; }
 @keyframes led { 50% { opacity: .35; } }
 
 /* flutuar e cintilar */
-.flutua, .sticker-cubo, .sticker-globo, .geo-mira, .sticker-disquetes, .sticker-flip, .sticker-espiral, .sticker-brilho-fino {
+.flutua, .sticker-cubo, .sticker-globo, .geo-mira, .sticker-flip, .sticker-espiral, .sticker-brilho-fino {
   animation: flutua 6s ease-in-out infinite alternate;
 }
 .sticker-globo, .sticker-flip { animation-duration: 7.5s; animation-delay: -2s; }
@@ -1453,7 +1304,7 @@ html { scroll-padding-top: 64px; }
 @keyframes balanca { from { transform: rotate(-1.5deg); } to { transform: rotate(1.5deg); } }
 
 /* aparelhos fracos e movimento reduzido: tudo parado */
-.leve .flutua, .leve .sticker-cubo, .leve .sticker-globo, .leve .geo-mira, .leve .sticker-disquetes, .leve .sticker-flip,
+.leve .flutua, .leve .sticker-cubo, .leve .sticker-globo, .leve .geo-mira, .leve .sticker-flip,
 .leve .sticker-espiral, .leve .sticker-brilho-fino, .leve .cintila, .leve .estrelas img, .leve .etiqueta-2, .leve .polaroid,
 .leve .cabecalho h2, .leve .janela-barra > span:first-child::before { animation: none !important; }
 @media (prefers-reduced-motion: reduce) { .topo::after { display: none; } }
