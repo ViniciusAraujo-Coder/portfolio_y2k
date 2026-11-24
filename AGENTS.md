@@ -67,7 +67,7 @@ Entregáveis: alterações em `src/dados.js` e nos textos das seções.
 
 - Capturas com Playwright (canal `msedge`) em 1440×900 e 390×844, percorrendo abertura e seções.
 - Console sem erros, sem rolagem horizontal, sem 404 (exceto prints de projeto ainda ausentes).
-- Testar Tab/foco, `prefers-reduced-motion`, interações (filtros, pastas, "Aparece em", formulário, Zezinho).
+- Testar Tab/foco, `prefers-reduced-motion`, interações (abas da Trajetória, carrossel de projetos (setas, bolinhas, Pausar e troca automática), formulário).
 - Conferir peso de imagens e que fundos só carregam quando necessários.
 - Conferir que toda imagem usada está em `CREDITOS.md`.
 

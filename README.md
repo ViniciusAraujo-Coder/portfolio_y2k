@@ -16,7 +16,7 @@ npm run preview  # testa localmente a versão de dist/
 ```
 index.html              página-base (o React "monta" o site dentro de <div id="raiz">)
 src/
-├── dados.js            ← TEXTOS E LISTAS: projetos, competências, trajetória, falas do Zezinho, links
+├── dados.js            ← TEXTOS E LISTAS: projetos, competências, trajetória, links
 ├── App.jsx             a página inteira, na ordem da jornada
 ├── main.jsx            liga o React ao index.html
 ├── util.js             funçõezinhas comuns (limita, suaviza, rolaPara...)
@@ -27,15 +27,15 @@ src/
 │   ├── Topo.jsx        menu fixo
 │   ├── Abertura.jsx    boot → mergulho no CD → janelas abrindo
 │   ├── Sobre.jsx · Projetos.jsx · Trajetoria.jsx · Competencias.jsx · Contato.jsx
-│   ├── Rodape.jsx      barra de tarefas com relógio
-│   └── Assistente.jsx  o Zezinho
+│   └── Rodape.jsx      barra de tarefas com relógio
 ├── hooks/
 │   ├── useJornada.js   motor do scroll (mergulho, cenários, CD viajante, parallax, revelar)
 │   ├── useDigitando.js efeito de máquina de escrever do cargo
+│   ├── useCarrossel.js carrossel dos projetos (troca automática com pausa)
 │   └── useSecaoAtual.js qual seção está na tela
 └── estilos/global.css  todo o visual (organizado em blocos na ordem da página)
 public/
-├── assets/             imagens, vetores do pack, ícones, Zezinho
+├── assets/             imagens, vetores do pack, ícones
 └── minhas-imagens/     suas fotos e prints de projetos (veja o LEIA-ME de lá)
 fontes/                 arquivos-fonte: sticker pack original (.zip, só local), fundos originais (cenas-originais/)
                         e assa-cenas.py, que aplica de vez as cores escuras/duotone nos fundos
@@ -60,12 +60,10 @@ O visitante precisa entender em poucos segundos **quem é o Vinicius, o que ele 
 1. **Boot** — tela azul de CRT e um **CD** girando. Ao rolar, você entra pelo furo do disco e o céu se abre.
 2. **Início** — as janelas "pipocam" como uma página antiga carregando (nome, webcam, avisos). O CD pousa num anel, como um planeta, e depois a colagem sobe em profundidades diferentes.
 3. **Sobre mim** — na **superfície do CD**: o disco gigante gira atrás do bloco de notas e das polaroids (câmera digital, Nokia 3310).
-4. **Projetos** — **dentro da máquina**: placa de circuito em azul e ciano; pastas do "C:\Meus Projetos" abrem o projeto numa janela em cascata.
+4. **Projetos** — **dentro da máquina**: placa de circuito em azul e ciano; um carrossel de cartões (print, nome, uma frase, tecnologias e links) que passa sozinho de tempos em tempos.
 5. **Trajetória** — **noite estrelada**: um CD Player com uma linha do tempo em duas abas (Estudos e Cursos), cada etapa com um mini texto explicando o que é, e o CD volta como a lua, sobre um Discman.
-6. **Competências** — **amanhecer de aço**: painel de controle com as tecnologias e uma janela "Propriedades".
+6. **Competências** — **amanhecer de aço**: painel de controle só com as tecnologias que sei usar, agrupadas.
 7. **Contato** — o céu do começo volta, e o ciclo fecha: cartão de visita, formulário e um flip phone mandando "bora conversar?".
-
-O **Zezinho** (a calopsita do Vinicius) acompanha como assistente, com uma dica curta por seção.
 
 ## Documentos do projeto
 

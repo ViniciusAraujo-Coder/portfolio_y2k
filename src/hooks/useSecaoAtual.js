@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Descobre qual seção está no meio da tela (usado pelo menu e pelo Zezinho).
+ * Descobre qual seção está no meio da tela (usado pelo menu).
  * margem = faixa da tela que conta como "estou aqui" (rootMargin do IntersectionObserver).
  */
 export default function useSecaoAtual(margem = "-45% 0px -50% 0px") {

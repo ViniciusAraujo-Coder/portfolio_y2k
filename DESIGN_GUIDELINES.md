@@ -43,7 +43,7 @@ Ordem das seções: Início → Sobre mim → Projetos → Trajetória → Compe
 ```
 
 - **Azul elétrico** = ação principal (botões "Ver meus projetos", "Enviar") e etiquetas "01 · quem sou".
-- **Ciano** = estado ativo/selecionado (filtro, pasta, tecnologia), brilhos de HUD, linhas finas.
+- **Ciano** = estado ativo/selecionado (menu, aba, cartão em foco), brilhos de HUD, linhas finas.
 - **Lima** = no máximo 1–2 pontos por tela: botão Contato, post-it, faixa "Hoje", botão fechar das janelas, marca-texto.
 - **Cromo** = títulos e ladrilhos de ícones; nunca em texto corrido.
 - Proibido: rosa, lilás, pastéis. Laranja só quando vem da própria foto (ex.: disquete).
@@ -67,8 +67,8 @@ Ordem das seções: Início → Sobre mim → Projetos → Trajetória → Compe
 - **Cada imagem aparece em uma única seção** — exceção: o CD, que é o protagonista.
 - **Geometria abstrata** (espirógrafo, órbita, mira, cubo, globo de arame): 1 por seção, baixa opacidade ou cor de HUD, girando devagar.
 - **Para qualquer pessoa entender (inclusive quem não é da área):** cada seção tem, embaixo do título, uma frase simples dizendo o que tem nela (`SECOES` em `dados.js`); cada etapa da trajetória tem título + local + um mini texto explicando o que é; termos técnicos vêm com explicação curta (ex.: "Back-end · por trás do site"). Nada de "interface de mentira" no conteúdo (menus Arquivo/Editar, visores, botões falsos): a janela retrô fica só na moldura e na barra de título.
-- **Pouco texto:** frases curtas; listas no formato rótulo → valor; cada projeto com 1 frase de resumo + 1 de papel. O Sobre mim tem só 1 frase de destaque (com os botões de currículo e trajetória) + 4 cartões separados (ícone do pack + rótulo + 2–3 palavras) + o mural de aparelhos. Mais elemento, menos texto. Projetos: no PC fica o explorador com pastas + janela do projeto aberto (estética retrô); no celular vira um carrossel de cartões grandes, um projeto por vez, deslizando para o lado (scroll-snap) com bolinhas embaixo indicando quantos são e qual está à vista. Competências: painel com um cartão por grupo (nome + explicação curta), ícones em ladrilho cromado com anel ciano na escolhida; detalhes na janela ao lado (PC) ou logo abaixo do grupo tocado (celular). Contato: cartão de perfil (foto redonda, nome cromado, status em pílulas) + 4 canais em cartõezinhos (ícone + nome + o que é: E-mail, WhatsApp, LinkedIn, GitHub) + formulário com campos arredondados.
-- Em telas ≤ 960px as colagens viram **uma coluna limpa**: tudo com a mesma largura e centralizado, janelas retas (inclinação só nos recortes), sem margens negativas. No celular o Zezinho só fala quando tocado.
+- **Pouco texto:** frases curtas; listas no formato rótulo → valor; cada projeto com 1 frase de resumo, sem mais nada além de tecnologias e links. O Sobre mim tem só 1 frase de destaque (com os botões de currículo e trajetória) + 4 cartões separados (ícone do pack + rótulo + 2–3 palavras) + o mural de aparelhos. Mais elemento, menos texto. Projetos: carrossel de cartões (print + nome + 1 frase + tecnologias + links) — 3 por vez no PC, 2 no tablet, 1 no celular (scroll-snap), com setas, bolinhas e troca automática a cada 5 s. A troca automática pausa com mouse/foco em cima, tem botão Pausar, para fora da tela e não existe com movimento reduzido (`src/hooks/useCarrossel.js`). Sem filtros, categorias ou janelas de detalhe. Competências: só o que sei usar — painel com um cartão por grupo (nome + explicação curta) e ícones em ladrilho cromado, sem nada para clicar. Contato: cartão de perfil (foto redonda, nome cromado, status em pílulas) + 4 canais em cartõezinhos (ícone + nome + o que é: E-mail, WhatsApp, LinkedIn, GitHub) + formulário com campos arredondados.
+- Em telas ≤ 960px as colagens viram **uma coluna limpa**: tudo com a mesma largura e centralizado, janelas retas (inclinação só nos recortes), sem margens negativas.
 
 ### Materiais
 - **Janelas:** vidro escuro com borda metálica fina; três variantes — `xp` (padrão), `98` (metal com relevo) e `grafite` (barra metálica). LED ciano na barra; botão fechar lima.
@@ -84,10 +84,9 @@ Ordem das seções: Início → Sobre mim → Projetos → Trajetória → Compe
 - Toda imagem nova entra em `CREDITOS.md` com autor, link e licença. Pinterest (`REFERENCIAS/`) é só inspiração.
 - Formatos: WebP para fotos e recortes (fundos até 1920px, recortes até ~1000px), SVG para vetores.
 
-## 7. Foto e assistente
+## 7. Foto
 
 - `public/minhas-imagens/eu.jpg` aparece na webcam da abertura (com a caixa verde "Dev") e no cartão do Contato.
-- **Zezinho** (a calopsita do Vinicius) é o assistente: uma dica curta por seção, pode ser minimizado, silenciado ou ter as dicas desligadas; dorme após 1 minuto parado; some durante o mergulho. Confirmar a licença do GIF antes de publicar.
 
 ## 8. Movimento
 
