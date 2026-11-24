@@ -24,7 +24,7 @@ export default function Topo({ secaoAtual }) {
 
   return (
     <header className={`topo${aberto ? " aberto" : ""}`}>
-      <a className="logo" href="#inicio"><span className="logo-orb" aria-hidden="true" />vinicius<b>.exe</b></a>
+      <a className="logo" href="#inicio"><span className="logo-orb" aria-hidden="true" /><span>vinicius<b>.exe</b></span></a>
       <nav className="links" aria-label="Principal">
         <span className="indicador" aria-hidden="true" style={indicador} />
         {LINKS.map(l => (
