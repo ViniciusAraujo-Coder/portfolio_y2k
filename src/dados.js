@@ -10,7 +10,7 @@ export const LINKEDIN = "https://www.linkedin.com/in/vinicius-araujo-dev";
 export const WHATSAPP = "https://wa.me/5511949476412";
 
 // Currículo: coloque o PDF em public/minhas-imagens/curriculo.pdf (sem o arquivo, o botão não aparece no site publicado).
-export const CURRICULO = "/minhas-imagens/curriculo.pdf";
+export const CURRICULO = "minhas-imagens/curriculo.pdf";
 
 // Frase curta embaixo do título de cada seção, explicando em palavras simples o que tem ali.
 // Pense em alguém que nunca viu um portfólio: ela entende só lendo esta frase?
@@ -27,10 +27,10 @@ export const SECOES = {
 export const SOBRE = {
   destaque: "Curioso por natureza. Construindo meu caminho entre *tecnologia* e *histórias*.",
   cartoes: [
-    { icone: "/assets/pack/camadas-ciano.svg", rotulo: "Estudo", valor: "Engenharia de Software", detalhe: "São Judas" },
-    { icone: "/assets/tech/java.svg", cromo: true, rotulo: "Curso", valor: "Web Java", detalhe: "Instituto PROA" },
-    { icone: "/assets/pack/planeta-ciano.svg", rotulo: "Idiomas", valor: "Espanhol e inglês", detalhe: "intermediário · básico" },
-    { icone: "/assets/pack/estrela-anel-lima.svg", rotulo: "Nas horas livres", valor: "Música e história", detalhe: "sociologia · nostalgia" },
+    { icone: "assets/pack/camadas-ciano.svg", rotulo: "Estudo", valor: "Engenharia de Software", detalhe: "São Judas" },
+    { icone: "assets/tech/java.svg", cromo: true, rotulo: "Curso", valor: "Web Java", detalhe: "Instituto PROA" },
+    { icone: "assets/pack/planeta-ciano.svg", rotulo: "Idiomas", valor: "Espanhol e inglês", detalhe: "intermediário · básico" },
+    { icone: "assets/pack/estrela-anel-lima.svg", rotulo: "Nas horas livres", valor: "Música e história", detalhe: "sociologia · nostalgia" },
   ],
 };
 
@@ -42,22 +42,22 @@ export const CARGOS = ["Estudante de Engenharia de Software", "Desenvolvedor Web
 // "imagem" fica em public/minhas-imagens/ (sem o arquivo, o cartão mostra "print em breve").
 // Botões só aparecem se houver "repositorio" (Ver código) ou "demo" (Abrir projeto).
 export const PROJETOS = [
-  { id: "memoria-viva", nome: "Memória Viva", imagem: "/minhas-imagens/projeto-memoria-viva.jpg",
+  { id: "memoria-viva", nome: "Memória Viva", imagem: "minhas-imagens/projeto-memoria-viva.jpg",
     resumo: "Plataforma para registrar a própria história a partir de fotos, com a família participando.",
     tecnologias: ["React"], repositorio: "", demo: "https://memoria-viva-react.vercel.app/" },
-  { id: "quintal", nome: "Quintal", imagem: "/minhas-imagens/projeto-quintal.jpg",
+  { id: "quintal", nome: "Quintal", imagem: "minhas-imagens/projeto-quintal.jpg",
     resumo: "Rede social para animais, inspirada no Instagram.",
     tecnologias: ["React"], repositorio: "", demo: "https://viniciusaraujo-coder.github.io/quintal-clone-instagram/" },
-  { id: "loja-impossivel", nome: "Loja Impossível", imagem: "/minhas-imagens/projeto-loja-impossivel.jpg",
+  { id: "loja-impossivel", nome: "Loja Impossível", imagem: "minhas-imagens/projeto-loja-impossivel.jpg",
     resumo: "Loja online de produtos que não existem, feita do zero.",
     tecnologias: ["HTML", "CSS", "JavaScript"], repositorio: "", demo: "https://viniciusaraujo-coder.github.io/Loja_Escola/" },
-  { id: "multiverso-news", nome: "Multiverso News", imagem: "/minhas-imagens/projeto-multiverso-news.jpg",
+  { id: "multiverso-news", nome: "Multiverso News", imagem: "minhas-imagens/projeto-multiverso-news.jpg",
     resumo: "Portal de notícias geek com matérias fictícias da cultura pop.",
     tecnologias: ["HTML", "CSS"], repositorio: "https://github.com/ViniciusAraujo-Coder/Multiverso_News", demo: "" },
-  { id: "mini-rpg", nome: "Mini RPG em Python", imagem: "/minhas-imagens/projeto-mini-rpg.jpg",
+  { id: "mini-rpg", nome: "Mini RPG em Python", imagem: "minhas-imagens/projeto-mini-rpg.jpg",
     resumo: "Jogo de terminal inspirado em Undertale, feito para a disciplina de IA da faculdade.",
     tecnologias: ["Python"], repositorio: "https://github.com/ViniciusAraujo-Coder/Jogo-Undertale", demo: "" },
-  { id: "hackathon-atria", nome: "Hackathon Atria — 2º lugar", imagem: "/minhas-imagens/projeto-hackathon-atria.jpg",
+  { id: "hackathon-atria", nome: "Hackathon Atria — 2º lugar", imagem: "minhas-imagens/projeto-hackathon-atria.jpg",
     resumo: "Dashboard com automação para controlar o estoque e a validade de produtos do agronegócio.",
     tecnologias: ["n8n"], repositorio: "", demo: "" },
 ];

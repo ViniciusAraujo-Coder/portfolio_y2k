@@ -24,7 +24,7 @@ export default function Projetos() {
           <span className="etiqueta etiqueta-2" aria-hidden="true">!!!</span>
         </Cabecalho>
 
-        <img className="sticker sticker-cubo revela" src="/assets/pack/cubo-ciano.svg" alt="" aria-hidden="true" loading="lazy" data-prof=".3" />
+        <img className="sticker sticker-cubo revela" src="assets/pack/cubo-ciano.svg" alt="" aria-hidden="true" loading="lazy" data-prof=".3" />
 
         <div className="vitrine revela" {...c.eventos}>
           <ul className="vitrine-lista" ref={c.trilho} onScroll={c.aoRolar} aria-label="Projetos">

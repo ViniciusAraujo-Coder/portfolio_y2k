@@ -8,11 +8,11 @@
  * data-src = a imagem só é baixada quando a seção está perto.
  */
 const CAMADAS = [
-  { secao: "sobre", classe: "cenario-disco", img: "/assets/cenas/disco.webp" }, // o CD já escurecido (fontes/assa-cenas.py)
-  { secao: "projetos", classe: "cenario-digital", img: "/assets/cenas/circuito.webp" },
-  { secao: "trajetoria", classe: "cenario-noite", img: "/assets/cenas/noite.webp" },
-  { secao: "competencias", classe: "cenario-aco", img: "/assets/cenas/amanhecer.webp" },
-  { secao: "contato", classe: "cenario-dia", img: "/assets/sky-1280.webp" },
+  { secao: "sobre", classe: "cenario-disco", img: "assets/cenas/disco.webp" }, // o CD já escurecido (fontes/assa-cenas.py)
+  { secao: "projetos", classe: "cenario-digital", img: "assets/cenas/circuito.webp" },
+  { secao: "trajetoria", classe: "cenario-noite", img: "assets/cenas/noite.webp" },
+  { secao: "competencias", classe: "cenario-aco", img: "assets/cenas/amanhecer.webp" },
+  { secao: "contato", classe: "cenario-dia", img: "assets/sky-1280.webp" },
 ];
 
 export default function Cenarios() {
@@ -20,7 +20,7 @@ export default function Cenarios() {
     <div className="cenarios" aria-hidden="true">
       <div className="aurora" />
       <div className="cenario mundo">
-        <img className="ceu" src="/assets/sky-1280.webp" srcSet="/assets/sky-1280.webp 1280w, /assets/sky-2200.webp 2200w" sizes="100vw" alt="" />
+        <img className="ceu" src="assets/sky-1280.webp" srcSet="assets/sky-1280.webp 1280w, assets/sky-2200.webp 2200w" sizes="100vw" alt="" />
       </div>
       {CAMADAS.map(c => (
         <div key={c.secao} className={`cenario ${c.classe}`} data-secao={c.secao}>
@@ -31,7 +31,7 @@ export default function Cenarios() {
       <div className="hud-grade" />
       <div className="hud-vinheta" />
       {/* o CD que sai da abertura e atravessa a jornada */}
-      <img className="viajante" src="/assets/recortes/cd.webp" alt="" width="1280" height="1284" />
+      <img className="viajante" src="assets/recortes/cd.webp" alt="" width="1280" height="1284" />
     </div>
   );
 }

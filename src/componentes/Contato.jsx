@@ -9,9 +9,9 @@ const mailto = (assunto = "", corpo = "") =>
 // Canais de contato. "oque" explica em 2 palavras o que é (para quem não conhece o app).
 const CANAIS = [
   { nome: "E-mail", oque: "escrever agora", href: mailto("Contato pelo portfólio"), icone: "" },
-  { nome: "WhatsApp", oque: "mandar mensagem", href: WHATSAPP, icone: "/assets/tech/whatsapp.svg", fora: true },
-  { nome: "LinkedIn", oque: "perfil profissional", href: LINKEDIN, icone: "/assets/tech/linkedin.svg", fora: true },
-  { nome: "GitHub", oque: "meus códigos", href: GITHUB, icone: "/assets/tech/github.svg", fora: true },
+  { nome: "WhatsApp", oque: "mandar mensagem", href: WHATSAPP, icone: "assets/tech/whatsapp.svg", fora: true },
+  { nome: "LinkedIn", oque: "perfil profissional", href: LINKEDIN, icone: "assets/tech/linkedin.svg", fora: true },
+  { nome: "GitHub", oque: "meus códigos", href: GITHUB, icone: "assets/tech/github.svg", fora: true },
 ];
 
 /** 05 · CONTATO — ambiente: o dia recomeça. Cartão de visita + "Nova mensagem" (abre o app de e-mail). */
@@ -42,15 +42,15 @@ export default function Contato({ aoFocarFormulario }) {
     <section className="secao" id="contato">
       <div className="container colagem colagem-contato">
         <Cabecalho numero="05" olho="vamos conversar" titulo="entre em contato" texto={SECOES.contato}>
-          <img className="brilho-titulo cintila" src="/assets/pack/brilhos-cruz-ciano.svg" alt="" aria-hidden="true" />
+          <img className="brilho-titulo cintila" src="assets/pack/brilhos-cruz-ciano.svg" alt="" aria-hidden="true" />
         </Cabecalho>
 
-        <img className="sticker geo geo-mira revela" src="/assets/pack/mira-ciano.svg" alt="" aria-hidden="true" loading="lazy" data-prof=".3" />
+        <img className="sticker geo geo-mira revela" src="assets/pack/mira-ciano.svg" alt="" aria-hidden="true" loading="lazy" data-prof=".3" />
 
         <Janela titulo="cartao.bmp" variante="98" barra98 className="revela cartao" inclinacao={-2}>
           <div className="cartao-corpo">
             <div className="perfil">
-              <Slot className="perfil-foto" src="/minhas-imagens/eu.jpg" alt="Foto de Vinicius Araújo" loading="lazy" />
+              <Slot className="perfil-foto" src="minhas-imagens/eu.jpg" alt="Foto de Vinicius Araújo" loading="lazy" />
               <div>
                 <p className="cartao-nome">Vinicius Araújo</p>
                 <p className="cartao-cargo">dev em formação</p>
@@ -93,8 +93,8 @@ export default function Contato({ aoFocarFormulario }) {
 
         {/* Grupo "celular": a mensagem sai do flip phone, com o sinal do satélite */}
         <div className="celular revela" aria-hidden="true">
-          <img className="sticker sticker-flip" src="/assets/recortes/flip.webp" alt="" loading="lazy" />
-          <img className="sticker sticker-satelite" src="/assets/pack/satelite-cromo.svg" alt="" loading="lazy" />
+          <img className="sticker sticker-flip" src="assets/recortes/flip.webp" alt="" loading="lazy" />
+          <img className="sticker sticker-satelite" src="assets/pack/satelite-cromo.svg" alt="" loading="lazy" />
           <div className="sms" style={{ "--r": "-3deg" }}>
             <span className="sms-topo"><b>ABC</b> Para: você</span>
             <p>bora conversar? :)</p>

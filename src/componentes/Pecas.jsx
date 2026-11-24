@@ -53,5 +53,5 @@ export function Slot({ src, alt, className = "", como: Tag = "figure", children,
 export function IconeTec({ nome }) {
   const c = POR_NOME[nome];
   if (!c) return null;
-  return c.icone ? <img src={`/assets/tech/${c.icone}.svg`} alt="" /> : <span className="mono">{c.nome}</span>;
+  return c.icone ? <img src={`assets/tech/${c.icone}.svg`} alt="" /> : <span className="mono">{c.nome}</span>;
 }

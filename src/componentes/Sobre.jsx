@@ -13,7 +13,7 @@ export default function Sobre() {
     <section className="secao" id="sobre">
       <div className="container colagem colagem-sobre">
         <Cabecalho numero="01" olho="quem sou" titulo="sobre mim" texto={SECOES.sobre}>
-          <img className="brilho-titulo cintila" src="/assets/pack/brilho-longo-cromo.svg" alt="" aria-hidden="true" />
+          <img className="brilho-titulo cintila" src="assets/pack/brilho-longo-cromo.svg" alt="" aria-hidden="true" />
         </Cabecalho>
 
         <Janela como="article" titulo="sobre_mim.txt" className="revela notepad" inclinacao={-.8}>
@@ -42,10 +42,10 @@ export default function Sobre() {
 
         {/* Grupo "aparelhos": duas fotos de tecnologia dos anos 2000 presas no mural */}
         <div className="mural revela" role="group" aria-label="Colagem de aparelhos dos anos 2000">
-          <figure className="polaroid polaroid-1"><img src="/assets/y2k/camera-digital.jpg" alt="Câmera digital compacta prateada dos anos 2000" loading="lazy" /><figcaption>câmera digital · 2004</figcaption></figure>
-          <figure className="polaroid polaroid-2"><img src="/assets/y2k/nokia-3310.jpg" alt="Celular Nokia 3310" loading="lazy" /><figcaption>nokia 3310 · indestrutível</figcaption></figure>
-          <img className="sticker sticker-espiral" src="/assets/pack/espiral-branco.svg" alt="" aria-hidden="true" loading="lazy" data-prof=".15" />
-          <img className="sticker sticker-brilho-fino" src="/assets/pack/brilho-fino-cromo.svg" alt="" aria-hidden="true" loading="lazy" />
+          <figure className="polaroid polaroid-1"><img src="assets/y2k/camera-digital.jpg" alt="Câmera digital compacta prateada dos anos 2000" loading="lazy" /><figcaption>câmera digital · 2004</figcaption></figure>
+          <figure className="polaroid polaroid-2"><img src="assets/y2k/nokia-3310.jpg" alt="Celular Nokia 3310" loading="lazy" /><figcaption>nokia 3310 · indestrutível</figcaption></figure>
+          <img className="sticker sticker-espiral" src="assets/pack/espiral-branco.svg" alt="" aria-hidden="true" loading="lazy" data-prof=".15" />
+          <img className="sticker sticker-brilho-fino" src="assets/pack/brilho-fino-cromo.svg" alt="" aria-hidden="true" loading="lazy" />
         </div>
       </div>
     </section>

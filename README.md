@@ -11,6 +11,13 @@ npm run build    # gera a versão final otimizada em dist/ (é ela que vai para 
 npm run preview  # testa localmente a versão de dist/
 ```
 
+### Publicar (GitHub Pages)
+Todo `git push` na `main` roda `.github/workflows/deploy.yml`, que faz o build no GitHub e publica o `dist/`
+em https://viniciusaraujo-coder.github.io/portfolio_y2k/. Configuração única: **Settings → Pages → Source: GitHub Actions**.
+
+**Regra dos caminhos:** o site mora numa subpasta, então arquivos de `public/` são escritos **sem a barra inicial**
+(`"assets/cd.webp"`, não `"/assets/cd.webp"`). Com a barra, a imagem funciona no `npm run dev` mas some no site publicado.
+
 ### Onde fica cada coisa
 
 ```

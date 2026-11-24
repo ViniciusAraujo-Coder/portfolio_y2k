@@ -34,7 +34,7 @@ export default function Trajetoria() {
     <section className="secao" id="trajetoria">
       <div className="container colagem colagem-trajetoria">
         <Cabecalho numero="03" olho="meu caminho" titulo="trajetória" texto={SECOES.trajetoria}>
-          <img className="brilho-titulo cintila" src="/assets/pack/brilho-triplo-lima.svg" alt="" aria-hidden="true" />
+          <img className="brilho-titulo cintila" src="assets/pack/brilho-triplo-lima.svg" alt="" aria-hidden="true" />
         </Cabecalho>
 
         <Janela titulo="CD Player — trajetoria.cda" variante="98" barra98 className="revela cdplayer" inclinacao={.8}>
@@ -72,10 +72,10 @@ export default function Trajetoria() {
 
         {/* Grupo "a trilha": o CD volta, agora como uma lua sobre o Discman */}
         <div className="trilha revela" aria-hidden="true">
-          <img className="sticker geo geo-orbita" src="/assets/pack/orbita-ciano.svg" alt="" loading="lazy" />
-          <img className="sticker sticker-cadente" src="/assets/pack/estrela-cadente-cromo.svg" alt="" loading="lazy" data-prof=".5" />
-          <img className="sticker cd-girando" src="/assets/recortes/cd.webp" alt="" loading="lazy" data-prof=".35" />
-          <img className="sticker sticker-portatil" src="/assets/recortes/cd-portatil.webp" alt="" loading="lazy" />
+          <img className="sticker geo geo-orbita" src="assets/pack/orbita-ciano.svg" alt="" loading="lazy" />
+          <img className="sticker sticker-cadente" src="assets/pack/estrela-cadente-cromo.svg" alt="" loading="lazy" data-prof=".5" />
+          <img className="sticker cd-girando" src="assets/recortes/cd.webp" alt="" loading="lazy" data-prof=".35" />
+          <img className="sticker sticker-portatil" src="assets/recortes/cd-portatil.webp" alt="" loading="lazy" />
           <p className="balao-fala balao-3">próxima faixa: <b>seu time?</b></p>
         </div>
       </div>

@@ -27,6 +27,7 @@ geometria vetorial e fotos reais de aparelhos dos anos 2000.
 - Cada movimento precisa reforçar a narrativa; nada só por decoração.
 - Respeite `prefers-reduced-motion`, foco visível, teclado e contraste no tema escuro.
 - Não bloquear scroll nem esconder a navegação essencial.
+- Caminhos para arquivos de `public/` **sem barra inicial** (`"assets/..."`, `"minhas-imagens/..."`): o site é publicado numa subpasta do GitHub Pages (`base: "./"` no Vite).
 
 ## Validação (obrigatória antes de dizer que terminou)
 - `npm run build` sem erros.

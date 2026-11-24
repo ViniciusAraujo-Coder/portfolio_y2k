@@ -17,8 +17,8 @@ export default function Competencias() {
       <div className="container colagem colagem-competencias">
         <Cabecalho numero="04" olho="com o que trabalho" titulo="competências" texto={SECOES.competencias}>
           <span className="estrelas" aria-hidden="true">
-            <img className="e1" src="/assets/pack/explosao-lima.svg" alt="" />
-            <img className="e2" src="/assets/pack/brilho-cromo.svg" alt="" />
+            <img className="e1" src="assets/pack/explosao-lima.svg" alt="" />
+            <img className="e2" src="assets/pack/brilho-cromo.svg" alt="" />
           </span>
         </Cabecalho>
 
@@ -42,7 +42,7 @@ export default function Competencias() {
           </div>
         </Janela>
 
-        <img className="sticker sticker-globo revela" src="/assets/pack/globo-arame-branco.svg" alt="" aria-hidden="true" loading="lazy" data-prof=".35" />
+        <img className="sticker sticker-globo revela" src="assets/pack/globo-arame-branco.svg" alt="" aria-hidden="true" loading="lazy" data-prof=".35" />
       </div>
     </section>
   );
